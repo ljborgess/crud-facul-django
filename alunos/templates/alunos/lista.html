@@ -1,0 +1,25 @@
+{% extends 'alunos/base.html' %}
+
+{% block conteudo %}
+    <div class="acoes-topo">
+        <a href="{% url 'criar_aluno' %}" class="botao">+ Novo Cartão</a>
+    </div>
+
+    {% if alunos %}
+        <div class="grid-cartoes">
+            {% for aluno in alunos %}
+                <div class="cartao">
+                    <h2>{{ aluno.nome }}</h2>
+                    <span class="curso">{{ aluno.curso }}</span>
+                    <p class="bio">{{ aluno.bio }}</p>
+                    <div class="cartao-acoes">
+                        <a href="{% url 'editar_aluno' aluno.pk %}">Editar</a>
+                        <a href="{% url 'excluir_aluno' aluno.pk %}" class="excluir">Excluir</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="vazio">Nenhum aluno cadastrado ainda. Crie o primeiro cartão!</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+.claude/
+CLAUDE.md
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Ambiente
+.env

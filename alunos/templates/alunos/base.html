@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Cartão de Identidade Acadêmica{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'alunos/style.css' %}">
+</head>
+<body>
+    <header class="topo">
+        <h1><a href="{% url 'lista_alunos' %}">Cartão de Identidade Acadêmica</a></h1>
+    </header>
+
+    <main class="conteudo">
+        {% if messages %}
+            <ul class="mensagens">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% block conteudo %}{% endblock %}
+    </main>
+</body>
+</html>
